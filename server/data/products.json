@@ -1,0 +1,72 @@
+[
+  {
+    "_id": "08cacd6acc29df02a6d21e7a",
+    "name": "Optimum Gold Standard",
+    "description": "24g protein per scoop. Trusted by athletes worldwide.",
+    "price": 3499,
+    "category": "whey",
+    "image": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcT-Bp_g5iSmYtX1JfPH8AUB1xw9b9aWGQ-5GEeuOWG3BCBp95d3b8IZ7YWP7AE0oSh7GMshUOUHMwlBp1WVL6p1FJYhW0c8mwHeCcpUgP-kC7PGdAZ3Tzym5yr8lkohMSgK4yZFUA&usqp=CAc",
+    "createdAt": "2026-10-18T06:57:14.594Z",
+    "updatedAt": "2026-10-18T06:57:14.594Z"
+  },
+  {
+    "_id": "ad982debf8581eb0a7b88213",
+    "name": "Dymatize Elite Whey",
+    "description": "Supports muscle recovery with delicious flavors.",
+    "price": 2799,
+    "category": "whey",
+    "image": "https://buvi07.neocities.org/image/71YJpLWiATL._SL1500_.jpg",
+    "createdAt": "2026-10-18T06:57:14.594Z",
+    "updatedAt": "2026-10-18T06:57:14.594Z"
+  },
+  {
+    "_id": "051b43157f9f46b27b06333e",
+    "name": "MyProtein Impact Whey",
+    "description": "Affordable, clean protein. Ideal for daily intake.",
+    "price": 1999,
+    "category": "whey",
+    "image": "https://www.myprotein.co.in/images?url=https://static.thcdn.com/productimg/original/15294747-1105223774381369.jpg&format=webp&auto=avif&crop=1100,1200,smart",
+    "createdAt": "2026-10-18T06:57:14.594Z",
+    "updatedAt": "2026-10-18T06:57:14.594Z"
+  },
+  {
+    "_id": "5d43b288e8e5d712aac30cc6",
+    "name": "MuscleBlaze Whey Protein",
+    "description": "Indian favorite with great absorption and results.",
+    "price": 2499,
+    "category": "whey",
+    "image": "https://img6.hkrtcdn.com/39079/prd_3907885-MuscleBlaze-Biozyme-Performance-Whey-3.85-lb-Triple-Chocolate_o.jpg",
+    "createdAt": "2026-10-18T06:57:14.594Z",
+    "updatedAt": "2026-10-18T06:57:14.594Z"
+  },
+  {
+    "_id": "95414530b55fce7048180f1b",
+    "name": "Adjustable Dumbbells",
+    "description": "Perfect for home workouts. Save space and build strength.",
+    "price": 4999,
+    "category": "equipment",
+    "image": "https://m.media-amazon.com/images/I/71RP8a0mNlL._AC_UF1000,1000_QL80_.jpg",
+    "createdAt": "2026-10-18T06:57:14.594Z",
+    "updatedAt": "2026-10-18T06:57:14.594Z"
+  },
+  {
+    "_id": "10272eb2a0711a7ee1c45084",
+    "name": "Resistance Band Set",
+    "description": "Great for mobility, strength, and stretching anywhere you go.",
+    "price": 799,
+    "category": "equipment",
+    "image": "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcRDoLAqR0PIkYoPKedqMOFeX1YNuReNjax88yGmcXjlX16hd1NqmEhEMr8e3agNxjCEZdHdu3oDFVjQ_ZqOFRp_zhF8uqxBRSNVt3-yuCA",
+    "createdAt": "2026-10-18T06:57:14.594Z",
+    "updatedAt": "2026-10-18T06:57:14.594Z"
+  },
+  {
+    "_id": "17b7d3ee21f02b39bb62e3cd",
+    "name": "Ab Roller Wheel",
+    "description": "Target your core and improve stability with this compact gear.",
+    "price": 499,
+    "category": "equipment",
+    "image": "https://i0.wp.com/www.muscleandfitness.com/wp-content/uploads/2012/10/ab_wheel_article.jpg",
+    "createdAt": "2026-10-18T06:57:14.594Z",
+    "updatedAt": "2026-10-18T06:57:14.594Z"
+  }
+]

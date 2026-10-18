@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin – Vitaflex</title>
+  <link rel="shortcut icon" href="https://buvi07.neocities.org/image/shopping%20(1).webp" type="image/x-icon" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body class="bg-gradient-to-b from-indigo-950 via-blue-900 to-cyan-800 text-gray-100 font-sans min-h-screen flex flex-col">
+
+  <!-- Header -->
+  <header class="flex justify-between items-center p-5 bg-indigo-950 sticky top-0 z-50 shadow-md">
+    <a href="index2.html"><h1 class="text-2xl font-bold text-amber-400">Vitaflex</h1></a>
+    <nav class="hidden md:flex gap-6">
+      <a href="index2.html" class="hover:text-amber-400 hover:underline">← Back to Site</a>
+      <a href="#stats"      class="hover:text-amber-400 hover:underline">Stats</a>
+      <a href="#products"   class="hover:text-amber-400 hover:underline">Products</a>
+      <a href="#orders"     class="hover:text-amber-400 hover:underline">Orders</a>
+      <a href="#messages"   class="hover:text-amber-400 hover:underline">Messages</a>
+      <a href="#users"      class="hover:text-amber-400 hover:underline">Users</a>
+      <a href="#testimonials-admin" class="hover:text-amber-400 hover:underline">Reviews</a>
+      <a href="#" id="admin-logout" class="hover:text-amber-400 hover:underline">Logout</a>
+    </nav>
+    <div class="md:hidden"><i class="fa-solid fa-bars text-amber-400"></i></div>
+  </header>
+
+  <main class="flex-1 px-6 md:px-20 py-12 space-y-16">
+
+    <!-- Stats -->
+    <section id="stats">
+      <h2 class="text-3xl font-semibold mb-8 text-amber-400">Dashboard</h2>
+      <div id="stats-grid" class="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div class="bg-indigo-800 rounded-xl p-6 text-center hover:scale-105 transition">
+          <p class="text-4xl font-bold text-cyan-300" id="stat-users">–</p>
+          <p class="text-gray-300 mt-2">Users</p>
+        </div>
+        <div class="bg-indigo-800 rounded-xl p-6 text-center hover:scale-105 transition">
+          <p class="text-4xl font-bold text-cyan-300" id="stat-orders">–</p>
+          <p class="text-gray-300 mt-2">Orders</p>
+        </div>
+        <div class="bg-indigo-800 rounded-xl p-6 text-center hover:scale-105 transition">
+          <p class="text-4xl font-bold text-cyan-300" id="stat-messages">–</p>
+          <p class="text-gray-300 mt-2">Messages</p>
+        </div>
+        <div class="bg-indigo-800 rounded-xl p-6 text-center hover:scale-105 transition">
+          <p class="text-4xl font-bold text-cyan-300" id="stat-revenue">–</p>
+          <p class="text-gray-300 mt-2">Revenue (₹)</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Products Management -->
+    <section id="products">
+      <h2 class="text-3xl font-semibold mb-6 text-amber-400">Products</h2>
+
+      <!-- Add product form -->
+      <div class="bg-indigo-800 rounded-xl p-6 mb-8">
+        <h3 class="text-xl font-bold text-cyan-300 mb-4">Add New Product</h3>
+        <form id="add-product-form" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <input id="p-name"  type="text"   placeholder="Product Name"  required class="px-4 py-2 rounded bg-indigo-900 border border-blue-700 text-white placeholder-gray-400 focus:outline-none focus:border-amber-400" />
+          <input id="p-price" type="number" placeholder="Price (₹)"     required min="0" class="px-4 py-2 rounded bg-indigo-900 border border-blue-700 text-white placeholder-gray-400 focus:outline-none focus:border-amber-400" />
+          <select id="p-cat" required class="px-4 py-2 rounded bg-indigo-900 border border-blue-700 text-white focus:outline-none focus:border-amber-400">
+            <option value="">Category</option>
+            <option value="whey">Whey Protein</option>
+            <option value="equipment">Equipment</option>
+            <option value="subliminal">Subliminal</option>
+          </select>
+          <input id="p-image" type="url" placeholder="Image URL (optional)" class="px-4 py-2 rounded bg-indigo-900 border border-blue-700 text-white placeholder-gray-400 focus:outline-none focus:border-amber-400" />
+          <textarea id="p-desc" placeholder="Description" rows="2" required class="md:col-span-2 px-4 py-2 rounded bg-indigo-900 border border-blue-700 text-white placeholder-gray-400 focus:outline-none focus:border-amber-400"></textarea>
+          <button type="submit" class="md:col-span-2 py-2 bg-amber-400 text-indigo-950 font-bold rounded hover:bg-amber-500 transition">Add Product</button>
+          <p id="p-msg" class="md:col-span-2 text-sm text-cyan-300 text-center hidden"></p>
+        </form>
+      </div>
+
+      <div id="products-table" class="overflow-x-auto">
+        <p class="text-gray-400">Loading products…</p>
+      </div>
+    </section>
+
+    <!-- Orders -->
+    <section id="orders">
+      <h2 class="text-3xl font-semibold mb-6 text-amber-400">Orders</h2>
+      <div id="orders-table" class="overflow-x-auto">
+        <p class="text-gray-400">Loading orders…</p>
+      </div>
+    </section>
+
+    <!-- Contact Messages -->
+    <section id="messages">
+      <h2 class="text-3xl font-semibold mb-6 text-amber-400">Contact Messages</h2>
+      <div id="messages-list" class="space-y-4">
+        <p class="text-gray-400">Loading messages…</p>
+      </div>
+    </section>
+
+    <!-- Users -->
+    <section id="users">
+      <h2 class="text-3xl font-semibold mb-6 text-amber-400">Users</h2>
+      <div id="users-table" class="overflow-x-auto">
+        <p class="text-gray-400">Loading users…</p>
+      </div>
+    </section>
+
+    <!-- Testimonials Moderation -->
+    <section id="testimonials-admin">
+      <h2 class="text-3xl font-semibold mb-6 text-amber-400">Reviews Moderation</h2>
+      <div id="testimonials-list" class="space-y-4">
+        <p class="text-gray-400">Loading reviews…</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="bg-indigo-950 text-center py-6 text-gray-400">
+    <p>&copy; 2025 Vitaflex Admin Panel. All rights reserved.</p>
+  </footer>
+
+  <script type="module">
+    import { api }                    from './js/api.js';
+    import { isLoggedIn, isAdmin, clearSession } from './js/auth.js';
+
+    // Guard: must be logged in as admin
+    if (!isLoggedIn() || !isAdmin()) {
+      alert('Admin access required. Please login with an admin account.');
+      window.location.href = 'login.html?redirect=admin.html';
+    }
+
+    document.getElementById('admin-logout').addEventListener('click', (e) => {
+      e.preventDefault();
+      clearSession();
+      window.location.href = 'index2.html';
+    });
+
+    /* ── Load all data ────────────────────────────────────────────────── */
+    async function init() {
+      await Promise.allSettled([
+        loadStats(),
+        loadProducts(),
+        loadOrders(),
+        loadMessages(),
+        loadUsers(),
+        loadTestimonials()
+      ]);
+    }
+
+    /* Stats */
+    async function loadStats() {
+      try {
+        const s = await api.admin.stats();
+        document.getElementById('stat-users').textContent    = s.users;
+        document.getElementById('stat-orders').textContent   = s.orders;
+        document.getElementById('stat-messages').textContent = s.messages;
+        document.getElementById('stat-revenue').textContent  = `₹${Number(s.revenue).toLocaleString('en-IN')}`;
+      } catch (e) { console.error('Stats:', e.message); }
+    }
+
+    /* Products */
+    async function loadProducts() {
+      try {
+        const products = await api.products.list();
+        const el       = document.getElementById('products-table');
+        if (!products.length) { el.innerHTML = '<p class="text-gray-400">No products yet.</p>'; return; }
+        el.innerHTML = `
+          <table class="w-full text-sm bg-indigo-800 rounded-xl overflow-hidden">
+            <thead class="bg-blue-900 text-cyan-300">
+              <tr>
+                <th class="text-left p-3">Name</th>
+                <th class="text-left p-3">Category</th>
+                <th class="text-left p-3">Price</th>
+                <th class="text-left p-3">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${products.map(p => `
+                <tr class="border-t border-blue-900 hover:bg-indigo-700 transition">
+                  <td class="p-3">${p.name}</td>
+                  <td class="p-3 capitalize">${p.category}</td>
+                  <td class="p-3">₹${p.price.toLocaleString('en-IN')}</td>
+                  <td class="p-3">
+                    <button data-del-product="${p._id}" class="text-red-400 hover:text-red-300 text-xs font-semibold">Delete</button>
+                  </td>
+                </tr>
+              `).join('')}
+            </tbody>
+          </table>`;
+        el.querySelectorAll('[data-del-product]').forEach(btn =>
+          btn.addEventListener('click', async () => {
+            if (!confirm('Delete this product?')) return;
+            await api.products.remove(btn.dataset.delProduct);
+            loadProducts();
+            loadStats();
+          }));
+      } catch (e) { document.getElementById('products-table').innerHTML = `<p class="text-red-400">${e.message}</p>`; }
+    }
+
+    /* Add product */
+    document.getElementById('add-product-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const msg = document.getElementById('p-msg');
+      try {
+        await api.products.create({
+          name:        document.getElementById('p-name').value.trim(),
+          price:       Number(document.getElementById('p-price').value),
+          category:    document.getElementById('p-cat').value,
+          image:       document.getElementById('p-image').value.trim(),
+          description: document.getElementById('p-desc').value.trim()
+        });
+        msg.textContent = '✅ Product added!';
+        msg.className   = 'md:col-span-2 text-sm text-cyan-300 text-center';
+        msg.classList.remove('hidden');
+        e.target.reset();
+        loadProducts();
+      } catch (err) {
+        msg.textContent = err.message;
+        msg.className   = 'md:col-span-2 text-sm text-red-400 text-center';
+        msg.classList.remove('hidden');
+      }
+    });
+
+    /* Orders */
+    async function loadOrders() {
+      try {
+        const orders = await api.orders.all();
+        const el     = document.getElementById('orders-table');
+        if (!orders.length) { el.innerHTML = '<p class="text-gray-400">No orders yet.</p>'; return; }
+        el.innerHTML = `
+          <table class="w-full text-sm bg-indigo-800 rounded-xl overflow-hidden">
+            <thead class="bg-blue-900 text-cyan-300">
+              <tr>
+                <th class="text-left p-3">Order ID</th>
+                <th class="text-left p-3">Customer</th>
+                <th class="text-left p-3">Total</th>
+                <th class="text-left p-3">Status</th>
+                <th class="text-left p-3">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${orders.map(o => `
+                <tr class="border-t border-blue-900 hover:bg-indigo-700 transition">
+                  <td class="p-3 font-mono text-xs">${o._id.slice(-8)}</td>
+                  <td class="p-3">${o.user?.name || '–'}<br><span class="text-xs text-gray-400">${o.user?.email || ''}</span></td>
+                  <td class="p-3">₹${o.total.toLocaleString('en-IN')}</td>
+                  <td class="p-3 capitalize">${o.status}</td>
+                  <td class="p-3">
+                    <select data-order-id="${o._id}" class="bg-indigo-900 border border-blue-700 text-white text-xs rounded px-2 py-1 focus:outline-none focus:border-amber-400">
+                      ${['pending','confirmed','shipped','delivered','cancelled'].map(s =>
+                        `<option value="${s}" ${o.status===s?'selected':''}>${s}</option>`
+                      ).join('')}
+                    </select>
+                  </td>
+                </tr>
+              `).join('')}
+            </tbody>
+          </table>`;
+        el.querySelectorAll('[data-order-id]').forEach(sel =>
+          sel.addEventListener('change', async () => {
+            await api.orders.setStatus(sel.dataset.orderId, sel.value);
+            loadStats();
+          }));
+      } catch (e) { document.getElementById('orders-table').innerHTML = `<p class="text-red-400">${e.message}</p>`; }
+    }
+
+    /* Messages */
+    async function loadMessages() {
+      try {
+        const messages = await api.contact.list();
+        const el       = document.getElementById('messages-list');
+        if (!messages.length) { el.innerHTML = '<p class="text-gray-400">No messages yet.</p>'; return; }
+        el.innerHTML = messages.map(m => `
+          <div class="bg-indigo-800 p-5 rounded-xl hover:scale-[1.01] transition" data-msg-id="${m._id}">
+            <div class="flex justify-between items-start">
+              <div>
+                <p class="font-bold text-cyan-300">${m.name} <span class="text-gray-400 font-normal text-sm">&lt;${m.email}&gt;</span></p>
+                <p class="text-sm text-gray-200 mt-2">${m.message}</p>
+                <p class="text-xs text-gray-400 mt-2">${new Date(m.createdAt).toLocaleString()}</p>
+              </div>
+              <button data-del-msg="${m._id}" class="text-red-400 hover:text-red-300 text-sm ml-4">✕</button>
+            </div>
+          </div>
+        `).join('');
+        el.querySelectorAll('[data-del-msg]').forEach(btn =>
+          btn.addEventListener('click', async () => {
+            await api.contact.remove(btn.dataset.delMsg);
+            loadMessages();
+            loadStats();
+          }));
+      } catch (e) { document.getElementById('messages-list').innerHTML = `<p class="text-red-400">${e.message}</p>`; }
+    }
+
+    /* Users */
+    async function loadUsers() {
+      try {
+        const users = await api.admin.users();
+        const el    = document.getElementById('users-table');
+        if (!users.length) { el.innerHTML = '<p class="text-gray-400">No users yet.</p>'; return; }
+        el.innerHTML = `
+          <table class="w-full text-sm bg-indigo-800 rounded-xl overflow-hidden">
+            <thead class="bg-blue-900 text-cyan-300">
+              <tr>
+                <th class="text-left p-3">Name</th>
+                <th class="text-left p-3">Email</th>
+                <th class="text-left p-3">Role</th>
+                <th class="text-left p-3">Joined</th>
+                <th class="text-left p-3">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${users.map(u => `
+                <tr class="border-t border-blue-900 hover:bg-indigo-700 transition">
+                  <td class="p-3">${u.name}</td>
+                  <td class="p-3">${u.email}</td>
+                  <td class="p-3 capitalize">${u.role}</td>
+                  <td class="p-3 text-xs text-gray-400">${new Date(u.createdAt).toLocaleDateString()}</td>
+                  <td class="p-3">
+                    ${u.role !== 'admin' ? `<button data-del-user="${u._id}" class="text-red-400 hover:text-red-300 text-xs font-semibold">Delete</button>` : '<span class="text-gray-500 text-xs">–</span>'}
+                  </td>
+                </tr>
+              `).join('')}
+            </tbody>
+          </table>`;
+        el.querySelectorAll('[data-del-user]').forEach(btn =>
+          btn.addEventListener('click', async () => {
+            if (!confirm('Delete this user?')) return;
+            await api.admin.deleteUser(btn.dataset.delUser);
+            loadUsers();
+            loadStats();
+          }));
+      } catch (e) { document.getElementById('users-table').innerHTML = `<p class="text-red-400">${e.message}</p>`; }
+    }
+
+    /* Testimonials moderation */
+    async function loadTestimonials() {
+      try {
+        const list = await api.testimonials.all();
+        const el   = document.getElementById('testimonials-list');
+        if (!list.length) { el.innerHTML = '<p class="text-gray-400">No testimonials yet.</p>'; return; }
+        el.innerHTML = list.map(t => `
+          <div class="bg-indigo-800 p-5 rounded-xl hover:scale-[1.01] transition">
+            <div class="flex justify-between items-start">
+              <div>
+                <p class="italic text-gray-200">${t.content}</p>
+                <p class="font-bold text-cyan-300 mt-2">– ${t.author}, ${t.date}</p>
+                <span class="inline-block mt-2 text-xs px-2 py-1 rounded ${t.approved ? 'bg-green-800 text-green-300' : 'bg-yellow-800 text-yellow-300'}">${t.approved ? 'Approved' : 'Pending'}</span>
+              </div>
+              <div class="flex gap-2 ml-4">
+                ${!t.approved ? `<button data-approve="${t._id}" class="text-xs bg-amber-400 text-indigo-950 px-2 py-1 rounded hover:bg-amber-500 font-semibold">Approve</button>` : `<button data-reject="${t._id}" class="text-xs bg-gray-600 text-white px-2 py-1 rounded hover:bg-gray-500 font-semibold">Revoke</button>`}
+                <button data-del-t="${t._id}" class="text-red-400 hover:text-red-300 text-sm">✕</button>
+              </div>
+            </div>
+          </div>
+        `).join('');
+        el.querySelectorAll('[data-approve]').forEach(btn =>
+          btn.addEventListener('click', async () => {
+            await api.testimonials.update(btn.dataset.approve, { approved: true });
+            loadTestimonials();
+          }));
+        el.querySelectorAll('[data-reject]').forEach(btn =>
+          btn.addEventListener('click', async () => {
+            await api.testimonials.update(btn.dataset.reject, { approved: false });
+            loadTestimonials();
+          }));
+        el.querySelectorAll('[data-del-t]').forEach(btn =>
+          btn.addEventListener('click', async () => {
+            await api.testimonials.remove(btn.dataset.delT);
+            loadTestimonials();
+          }));
+      } catch (e) { document.getElementById('testimonials-list').innerHTML = `<p class="text-red-400">${e.message}</p>`; }
+    }
+
+    init();
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,21 @@
+[
+  {
+    "_id": "b6a967226fbe15701bd1177d",
+    "name": "Admin User",
+    "email": "admin@vitaflex.com",
+    "password": "$2b$10$zW.wn0UtpDPhWvlKY7Xum.T5zsjgun7gbi1XQJL.NJa9ehMRn9zR6",
+    "role": "admin",
+    "createdAt": "2026-10-18T06:57:14.509Z",
+    "updatedAt": "2026-10-18T06:57:14.509Z",
+    "cart": []
+  },
+  {
+    "_id": "b4f8ad2caa63406d5dc62546",
+    "name": "Harish Hari",
+    "email": "harish03hari2006@gmail.com",
+    "password": "$2b$10$aqkfjCApheiAgHzx0O7V5.Sn5FTcJ8M2rGtc5CBe38V/N9q9d4NhC",
+    "createdAt": "2026-10-18T07:19:16.928Z",
+    "updatedAt": "2026-10-18T07:19:27.290Z",
+    "cart": []
+  }
+]

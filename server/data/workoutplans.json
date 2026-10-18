@@ -1,0 +1,26 @@
+[
+  {
+    "_id": "5432c50a9edd82a47181fe2f",
+    "title": "Beginner Plan",
+    "level": "beginner",
+    "description": "Start strong with basics in cardio, strength & mobility.",
+    "createdAt": "2026-10-18T06:57:14.596Z",
+    "updatedAt": "2026-10-18T06:57:14.596Z"
+  },
+  {
+    "_id": "9fa09be89b4281beddccbec3",
+    "title": "Intermediate Plan",
+    "level": "intermediate",
+    "description": "Push your limits with advanced strength & endurance training.",
+    "createdAt": "2026-10-18T06:57:14.596Z",
+    "updatedAt": "2026-10-18T06:57:14.596Z"
+  },
+  {
+    "_id": "cc610b412cecccce9fe023a8",
+    "title": "Advanced Plan",
+    "level": "advanced",
+    "description": "High-performance routines for muscle building and agility.",
+    "createdAt": "2026-10-18T06:57:14.596Z",
+    "updatedAt": "2026-10-18T06:57:14.596Z"
+  }
+]

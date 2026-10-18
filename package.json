@@ -1,0 +1,10 @@
+{
+  "name": "vitaflex",
+  "version": "1.0.0",
+  "description": "Vitaflex full-stack fitness website",
+  "scripts": {
+    "start": "cd server && node index.js",
+    "dev":   "cd server && npm run dev"
+  },
+  "private": true
+}

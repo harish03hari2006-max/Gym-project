@@ -1,0 +1,19 @@
+[
+  {
+    "_id": "1954a92c309b37762e908ac2",
+    "user": "b4f8ad2caa63406d5dc62546",
+    "items": [
+      {
+        "product": "051b43157f9f46b27b06333e",
+        "name": "MyProtein Impact Whey",
+        "price": 1999,
+        "quantity": 1
+      }
+    ],
+    "total": 1999,
+    "address": {},
+    "createdAt": "2026-10-18T07:19:27.288Z",
+    "updatedAt": "2026-10-18T07:20:40.222Z",
+    "status": "confirmed"
+  }
+]
