@@ -4,7 +4,9 @@
  * All fetch calls go through here — no credentials hardcoded.
  */
 
-const API_BASE = 'http://localhost:5000/api';
+const API_BASE = (window.location.port === '5500' || window.location.protocol === 'file:')
+  ? 'http://localhost:5000/api'
+  : '/api';
 
 /** Return auth headers if a token is stored */
 function authHeaders() {
